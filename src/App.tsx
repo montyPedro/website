@@ -5,9 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <div style={{ padding: '2rem'}}>
-      <Home />
-    </div>
+    <Home />
   );
 }
 

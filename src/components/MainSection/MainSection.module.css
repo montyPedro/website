@@ -1,7 +1,7 @@
 .container {
     min-height: 100vh;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #000000;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;

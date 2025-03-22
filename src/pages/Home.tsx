@@ -1,52 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import LandingSection from '../components/LandingSection/LandingSection';
-import MainSection from '../components/MainSection/MainSection';
+import React, { useEffect, useState } from "react";
+import LandingSection from "../components/LandingSection/LandingSection";
+import MainSection from "../components/MainSection/MainSection";
+import NavBar from "../components/NavBar/NavBar";
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [showNavBar, setShowNavBar] = useState(false);
 
   const handleScroll = () => {
+    const landingSectionHeight =
+      document.getElementById("landing-section")?.offsetHeight || 0;
     setScrollY(window.scrollY);
+
+    if (window.scrollY >= landingSectionHeight) {
+      setShowNavBar(true);
+    } else {
+      setShowNavBar(false);
+    }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Calculate opacity (you can tweak the denominator to control speed)
-  const landingOpacity = Math.max(1 - scrollY / 300, 0);
-  const mainOpacity = Math.min(scrollY / 300, 1);
 
   return (
     <div>
-      <div
-        style={{
-          position: 'fixed',
-          width: '100%',
-          height: '100vh',
-          top: 0,
-          left: 0,
-          opacity: landingOpacity,
-          zIndex: 2,
-          transition: 'opacity 0.1s ease-out',
-        }}
-      >
+      <div id="landing-section">
         <LandingSection />
       </div>
-
-      <div
-        style={{
-          position: 'relative',
-          top: '100vh',
-          opacity: mainOpacity,
-          transition: 'opacity 0.1s ease-out',
-          zIndex: 1,
-        }}
-      >
+      <div>
         <MainSection />
       </div>
+
+      {showNavBar && <NavBar />}
     </div>
   );
 };

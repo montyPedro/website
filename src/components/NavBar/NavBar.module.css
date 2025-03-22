@@ -1,0 +1,99 @@
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100px; /* Sidebar width */
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2rem;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+/* Ball Indicator Styles */
+.ballIndicator {
+  position: absolute;
+  left: 10px; /* Distance from the left side of the sidebar */
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  transition: top 0.3s ease-out;
+  padding-right: 2px;
+}
+
+/* Active Ball */
+.activeBall {
+  background-color: #54ff7f; /* Highlight color when the section is active */
+}
+
+/* Indicator Line (if you still want to move the line itself with scroll) */
+.indicator {
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 20px;
+  background-color: white;
+  transition: top 0.2s ease-out;
+}
+
+/* Links Styling */
+.navList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin: 2rem 0;
+  position: relative; /* Needed to position the ball correctly */
+}
+
+/* Link Container to hold both the ball and the text */
+.navLinkContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Links Styling */
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  padding-left: 30px; /* Add space for the ball */
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #f9f9f9;
+}
+
+/* Active Link Styling (optional) */
+.navItem.active {
+  /* background-color: #444; /* Optional: Highlight active section */
+}
+
+.navLink.activeLink {
+  color: #ffcc00; /* Change color of active link */
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 50px; /* Smaller sidebar width for mobile */
+  }
+
+  .navLink {
+    font-size: 0.8rem; /* Smaller font size */
+  }
+}
